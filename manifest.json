@@ -1,0 +1,28 @@
+{
+    "name": "Password Hasher",
+    "version": "0.0.1",
+    "version_name": "0.0.1 alpha",
+    "manifest_version": 2,
+
+    "description": "Creates a cryptographically secure hash from a token and an master password, allowing unique slave passwords for each service.",
+
+    "icons": {
+        "16": "icons/16.png",
+        "48": "icons/48.png",
+        "128": "icons/128.png"
+    },
+
+    "browser_action": {
+        "default_title":"Password Hasher",
+        "default_popup":"main.html",
+        "default_icon": {
+            "19": "icons/19.png",
+            "38": "icons/38.png"
+        }
+    },
+
+    "permissions": [
+        "clipboardWrite"
+    ]
+
+}
