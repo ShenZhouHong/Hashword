@@ -39,5 +39,3 @@ var sha256_hasher = function(data, type) {
         return sjcl.codec.base64.fromBits(sha256_raw);
     }
 }
-
-var
