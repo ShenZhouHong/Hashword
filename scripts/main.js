@@ -15,6 +15,7 @@ var script_checks = function() {
         console.log("Check: sjcl is loaded successfully");
     }
 }
+
 var token_preparser = function(token, trim, lowercase) {
     // Preparses token for the sake of consistency
     if (trim == true) {
@@ -39,3 +40,11 @@ var sha256_hasher = function(data, type) {
         return sjcl.codec.base64.fromBits(sha256_raw);
     }
 }
+
+//Reads value from input box in html page and passes it on to relevent functions
+$(".values").change(function() {
+    var token = $("#token_input").val();
+    var password = $("#password_input").val();
+    console.log(token);
+    console.log(password);
+});
