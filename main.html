@@ -12,12 +12,28 @@
         <!-- Begin Content -->
         <h1 class="title" id="title_main"> Password Hasher </h1>
 
-        <!-- All the different form inputs -->
-        <p>Token</p><input id="token_input" class="values" name="Token" placeholder="Ex. Name of the Site" type="text">
-        <p>Master Password</p> <input id="password_input" class="values" name="Password" placeholder="Master Password" type="password">
-        <p>Hash</p> <input id="hash_output" class="values" name="Resulting Hash" placeholder="Hash" type="text" disabled="true" readonly="true">
-        <div id="button-div">
-            <button id="button" type="button">Hash</button>
+        <!-- Body content div for all the things -->
+        <div id="main_body">
+            <!-- All the different form inputs -->
+            <div id="input_div">
+                <p>Token</p><input id="token_input" class="values" name="Token" placeholder="Ex. Name of the Site" type="text">
+                <p>Master Password</p> <input id="password_input" class="values" name="Password" placeholder="Master Password" type="password">
+                <p>Hash</p> <input id="hash_output" class="values" name="Resulting Hash" placeholder="Hash" type="text" disabled="true" readonly="true">
+            </div>
+
+            <!-- Buttons for hashing and options -->
+            <div id="button-div">
+                <button id="hash_button" type="button">Hash</button>
+                <button id="options_button" type="button">Options</button>
+            </div>
+
+            <div></div>
+            <!-- Hidden options menu (Expandable via js) -->
+            <div id="options_menu">
+                <input id="strip_whitespace" type="checkbox" name="strip whitespace" value="strip whitespace"/> Strip Whitespace
+                <input id="enforce_lowercase" type="checkbox" name="enforce lowercase" value="enforce lowercase"/> Force Lowercase
+
+            </div>
         </div>
         <!-- Include dependencies and main.js script -->
         <script src="scripts/jquery.js"></script>
