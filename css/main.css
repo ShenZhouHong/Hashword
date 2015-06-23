@@ -1,0 +1,38 @@
+/* Resets Chrome Ext's default body margins */
+body {
+    margin: 0 0;
+    padding: 0 0;
+}
+
+/* Section Heading */
+.section_header {
+    text-align: center;
+
+}
+
+/* Each individual slide represents a menuspace */
+.slide {
+    /* Dimensions */
+    height: auto;
+    width: auto;
+
+    /* Removes Chrome Ext default styles */
+    margin: 0 0;
+    padding: 0 0;
+}
+
+/* Each label sits on top of a input box */
+.label {
+    margin: 8px 0 0 0;
+    padding: 0 0;
+}
+
+/* Custom styling for input boxes */
+.inputbox {
+    border-radius: 3px;
+    border-width: 1px;
+}
+
+.inputbox:focus {
+    outline:none;
+}

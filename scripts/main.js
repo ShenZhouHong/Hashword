@@ -42,7 +42,7 @@ var sha256_hasher = function(data, type) {
 }
 $(document).ready(function() {
     //Reads value from input box in html page and passes it on to relevent functions
-    $("#hash_button").click(function() {
+    $(".inputbox").on('input', function() {
         var token = token_preparser($("#token_input").val(), localStorage.getItem("strip_whitespace"), localStorage.getItem("enforce_lowercase"));
         var password = $("#password_input").val();
         var hash = sha256_hasher((token + password), "base64");
