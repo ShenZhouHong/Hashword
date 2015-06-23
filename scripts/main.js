@@ -45,9 +45,16 @@ $(document).ready(function() {
     $(".inputbox").on('input', function() {
         var token = token_preparser($("#token_input").val(), localStorage.getItem("strip_whitespace"), localStorage.getItem("enforce_lowercase"));
         var password = $("#password_input").val();
-        var hash = sha256_hasher((token + password), "base64");
-        $("#hash_output").val(hash);
+        var slug = token + password
 
+        // Checks in case inputs are empty
+        if (token === "" || password === "") {
+            $("#hash_output").val("");
+        }
+        else {
+            var hash = sha256_hasher(slug, "base64");
+            $("#hash_output").val(hash);
+        }
     });
 
     $("#options_button").click(function() {
