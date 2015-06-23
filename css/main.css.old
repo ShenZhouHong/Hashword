@@ -12,9 +12,8 @@ p {
     margin: 10px 0 0 0;
 }
 
-#options_menu {
+.hidden {
     display: none;
-    background-color: grey;
 }
 
 body {
