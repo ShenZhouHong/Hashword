@@ -1,21 +1,3 @@
-// Checks if all modules have been properly loaded
-var script_checks = function() {
-    // jQuery check
-    if (typeof jQuery == 'undefined') {
-        console.log("Error: Jquery is not loaded!");
-    }
-    else {
-        console.log("Check: Jquery is loaded successfully");
-    }
-    // sjcl check
-    if (typeof sjcl.hash.sha256 == 'undefined') {
-        console.log("Error: sjcl is not loaded!");
-    }
-    else {
-        console.log("Check: sjcl is loaded successfully");
-    }
-}
-
 var token_preparser = function(token, trim, lowercase) {
     // Preparses token for the sake of consistency
     if (trim == true) {
@@ -29,15 +11,12 @@ var token_preparser = function(token, trim, lowercase) {
 
 // Primary module that creates password hashes.
 var sha256_hasher = function(data, type) {
-    // Creates a (raw) sha256 hash
-    var sha256_raw = sjcl.hash.sha256.hash(data);
-
     // Creates different encodings of the sha256 hash (base64 or hex)
     if (type == "hex") {
-        return sjcl.codec.hex.fromBits(sha256_raw);
+        return sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(data));
     }
     else if (type == "base64") {
-        return sjcl.codec.base64.fromBits(sha256_raw);
+        return sjcl.codec.base64.fromBits(sjcl.hash.sha256.hash(data));
     }
 }
 $(document).ready(function() {
@@ -48,19 +27,16 @@ $(document).ready(function() {
             // Do nothing or clears output
             $("#hash_output").val("");
         }
+        // If inputs are not empty...
         else {
-
-            // Creates hash
-            var hash = sha256_hasher(token_preparser($("#token_input").val(), localStorage.getItem("strip_whitespace"), localStorage.getItem("enforce_lowercase")) + $("#password_input").val(), "base64");
-
-            // Writes hash to inputbox
-            $("#hash_output").val(hash);
+            // Creates hash and writes to inputbox
+            $("#hash_output").val(sha256_hasher(token_preparser($("#token_input").val(), localStorage.getItem("strip_whitespace"), localStorage.getItem("enforce_lowercase")) + $("#password_input").val(), "base64"));
 
             // Copies to clipboard and closes window when tabbed over
             $("#hash_output").focus(function(){
 
                 // Selects everything
-                this.select()
+                this.select();
 
                 //Copies to clipboard
                 document.execCommand("copy");
@@ -74,20 +50,22 @@ $(document).ready(function() {
         }
     });
 
+    // Toggles option panel (not done yet)
     $("#options_button").click(function() {
         $("#options_menu").slideToggle(500);
     });
 
+    // Toggles preparser enforce_lowercase option
     $("#enforce_lowercase").click(function(){
        if($(this).is(":checked")){
            localStorage.setItem("enforce_lowercase", true);
        }
        else if($(this).is(":not(:checked)")){
-           localStorage.setItem("enforce_lowercase". false);
-
+           localStorage.setItem("enforce_lowercase", false);
        }
     });
 
+    // Toggles preparser strip_whitespace option
     $("#strip_whitespace").click(function(){
         if($(this).is(":checked")){
             localStorage.setItem("strip_whitespace", true);
