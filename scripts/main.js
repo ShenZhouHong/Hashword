@@ -57,7 +57,10 @@ $(document).ready(function() {
             $("#hash_output").focus(function(){
                 this.select()
                 document.execCommand("copy");
-                window.close();
+                $("#notice_ticker").text("Copied!");
+                $("#wrapper").slideUp(500, function(){
+                    window.close();
+                });
             });
         }
     });

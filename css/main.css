@@ -1,7 +1,7 @@
 /* Resets Chrome Ext's default body margins */
 body {
     margin: 0 0;
-    padding: 0 0;
+    padding: 5px;
 }
 
 /* Section Heading */
@@ -42,4 +42,9 @@ body {
 
 .inputbox:focus {
     outline:none;
+}
+
+/* Boundaries for notice_ticker */
+#notice_ticker {
+    margin: 0 0;
 }

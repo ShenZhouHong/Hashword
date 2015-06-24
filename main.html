@@ -3,6 +3,7 @@
     <head>
         <title>Hashword</title>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
@@ -14,7 +15,7 @@
 
                 <!-- Title Header -->
                 <div class="section_header" id="title_header">
-                    <h1> Hashword <h1>
+                    <h1 id="notice_ticker"> Hashword </h1>
                 </div>
 
                 <!-- Div where all the inputs live -->
@@ -22,16 +23,6 @@
                     <p class="label">Token</p><input id="token_input" class="inputbox" name="Token" placeholder="Ex. Name of the Site" type="text">
                     <p class="label">Password</p> <input id="password_input" class="inputbox" name="Password" placeholder="Master Password" type="password">
                     <p class="label">Hash</p> <input id="hash_output" class="inputbox" name="Resulting Hash" placeholder="Hash" type="text" readonly="true">
-                </div>
-
-                <!-- Buttons for hashing and options -->
-                <div id="button-div">
-                    <button id="options_button" type="button">Options</button>
-                </div>
-
-                <!-- Exit Popup (Copied to Clipboard) -->
-                <div class="popup" id="exit_dialog">
-                    <h2>Copied to Clipboard</h2>
                 </div>
             </div>
 
