@@ -49,11 +49,26 @@ body {
     margin: 0 0;
 }
 
-/* Custom fonts */
-h1 {
-    font-family: "proxima_nova_rgregular";
+/* Submenu link (link to and fro options menu) */
+.submenu_link {
+    text-align:center;
+    color: grey;
+
 }
 
-p {
-    font-family: "proxima_nova_rgregular";
+/* HTML Link Styles */
+/* unvisited link */
+a:link {
+    color: grey;
+}
+
+/* visited link */
+a:visited {
+    color: grey;
+}
+
+/* mouse over link */
+a:hover {
+    color: grey;
+    font-style: oblique;
 }
