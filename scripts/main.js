@@ -20,6 +20,7 @@ var sha256_hasher = function(data, type) {
     }
 }
 $(document).ready(function() {
+    $("#token_input").focus();
     //Reads value from input box in html page and passes it on to relevent functions
     $(".inputbox").on('input', function() {
         // Checks in case inputs are empty
@@ -50,9 +51,27 @@ $(document).ready(function() {
         }
     });
 
+    //Slick Slider
+    $(".wrapper").slick({
+        nextArrow: $(".forward"),
+        prevArrow: $(".backward"),
+        variableWidth: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: false,
+        centerMode: false,
+        initialSlide: 1,
+        speed: 200,
+        draggable: false,
+        swipe: false,
+        swipeToSlide: false,
+        touchMove: false,
+
+    });
+
     // Toggles option panel (not done yet)
-    $("#options_button").click(function() {
-        $("#options_menu").slideToggle(500);
+    $("#options_link").click(function() {
+
     });
 
     // Toggles preparser enforce_lowercase option

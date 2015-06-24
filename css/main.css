@@ -1,31 +1,37 @@
 /* Resets Chrome Ext's default body margins */
 body {
     margin: 0 0;
+    padding: 0 0;
 }
 
 /* Sets my own body margins */
 .wrapper {
     padding: 5px;
-    height: 174px;
+    height: 182px;
+    width: 140px;
 }
 
 /* Section Heading */
 .section_header {
     text-align: center;
+    margin: 0 0;
 
+}
+h1 {
+    margin: 0 0;
 }
 
 /* Each individual slide represents a menuspace */
 .slide {
     /* Dimensions */
-    height: auto;
-    width: auto;
+    width: 130px;
+    height: 100%;
 
     /* Removes Chrome Ext default styles */
     margin: 0 0;
     padding: 0 0;
 
-    visibility: hidden;
+    visibility: visible;
 }
 
 /* First slide starts off visisble (duh) */
@@ -49,40 +55,53 @@ body {
     outline:none;
 }
 
-/* Boundaries for notice_ticker */
-#notice_ticker {
-    margin: 0 0;
-}
-
 /* Submenu link (link to and fro options menu) */
 .submenu_link {
     text-align:center;
     color: grey;
     display: inline-block;
-
 }
 
-#options_link {
+.forward {
     float: right;
 }
 
-#help_link {
+.backward {
     float: left;
+}
+
+.footer {
 }
 
 /* HTML Link Styles */
 /* unvisited link */
 a:link {
     color: grey;
+    outline: none;
+    outline-color: transparent;
+    outline-style: none;
 }
 
+/* Removes glow on active links (annoying) */
 /* visited link */
 a:visited {
     color: grey;
+    outline: none;
+    outline-color: transparent;
+    outline-style: none;
 }
 
 /* mouse over link */
 a:hover {
     color: grey;
     font-weight: bold;
+    outline: none;
+    outline-color: transparent;
+    outline-style: none;
+}
+
+a:active {
+    outline: none;
+    outline-color: transparent;
+    outline-style: none;
 }

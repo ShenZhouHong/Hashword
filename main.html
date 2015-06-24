@@ -4,11 +4,24 @@
         <title>Hashword</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
         <!-- Begin main content wrapper -->
         <div class="wrapper" id="wrapper">
+
+            <!-- About slide of extension -->
+            <div class="slide" id="slide_3">
+                <!-- Title Header -->
+                <div class="section_header" id="about_header">
+                    <h1> About </h1>
+                </div>
+
+                    <a href="#" class="submenu_link label forward" tabindex= "-1">
+                        Back
+                    </a>
+            </div>
 
             <!-- Main slide of extension -->
             <div class="slide" id="slide_1">
@@ -25,28 +38,32 @@
                     <p class="label">Hash</p> <input id="hash_output" class="inputbox" name="Resulting Hash" placeholder="Hash" type="text" readonly="true">
                 </div>
 
-                <!-- Help Menu Link -->
-                <a href="#" class="submenu_link label" id="help_link">
-                    Help
-                </a>
-                
-                <!-- Options Menu Link -->
-                <a href="#" class="submenu_link label" id="options_link">
-                    Options
-                </a>
+                    <!-- Help Menu Link -->
+                    <a href="#" class="submenu_link label backward" id="help_link" tabindex="-1">
+                        Help
+                    </a>
+
+                    <!-- Options Menu Link -->
+                    <a href="#" class="submenu_link label forward" id="options_link" tabindex="-1">
+                        Options
+                    </a>
             </div>
 
             <!-- Options menu slide of extension -->
             <div class="slide" id="slide_2">
-            </div>
-
-            <!-- About slide of extension -->
-            <div class="slide" id="slide_3">
+                <div class="section_header" id="options_header">
+                    <h1>Options</h1>
+                </div>
+                <!-- Help Menu Link -->
+                    <a href="#" class="submenu_link label backward" tabindex="-1">
+                        Back
+                    </a>
             </div>
         </div>
         <!-- Include dependencies and main.js script -->
         <script src="scripts/jquery.js"></script>
         <script src="scripts/sjcl.js"></script>
+        <script type="text/javascript" src="slick/slick.min.js"></script>
         <script src="scripts/main.js"></script>
     </body>
 </html>
