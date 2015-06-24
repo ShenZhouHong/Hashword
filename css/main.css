@@ -48,3 +48,12 @@ body {
 #notice_ticker {
     margin: 0 0;
 }
+
+/* Custom fonts */
+h1 {
+    font-family: "proxima_nova_rgregular";
+}
+
+p {
+    font-family: "proxima_nova_rgregular";
+}
