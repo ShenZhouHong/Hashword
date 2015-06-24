@@ -44,18 +44,14 @@ $(document).ready(function() {
     //Reads value from input box in html page and passes it on to relevent functions
     $(".inputbox").on('input', function() {
         // Checks in case inputs are empty
-        if (token === "" || password === "") {
-            // Do nothing
+        if ($("#token_input").val() === "" || $("#password_input").val() === "") {
+            // Do nothing or clears output
             $("#hash_output").val("");
         }
         else {
-            // Gathers variables
-            var token = token_preparser($("#token_input").val(), localStorage.getItem("strip_whitespace"), localStorage.getItem("enforce_lowercase"));
-            var password = $("#password_input").val();
-            var slug = token + password;
-            
+
             // Creates hash
-            var hash = sha256_hasher(slug, "base64");
+            var hash = sha256_hasher(token_preparser($("#token_input").val(), localStorage.getItem("strip_whitespace"), localStorage.getItem("enforce_lowercase")) + $("#password_input").val(), "base64");
 
             // Writes hash to inputbox
             $("#hash_output").val(hash);
