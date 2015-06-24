@@ -21,7 +21,7 @@
                 <div class="content" id="input_boxes">
                     <p class="label">Token</p><input id="token_input" class="inputbox" name="Token" placeholder="Ex. Name of the Site" type="text">
                     <p class="label">Password</p> <input id="password_input" class="inputbox" name="Password" placeholder="Master Password" type="password">
-                    <p class="label">Hash</p> <input id="hash_output" class="inputbox" name="Resulting Hash" placeholder="Hash" type="text" disabled="true" readonly="true">
+                    <p class="label">Hash</p> <input id="hash_output" class="inputbox" name="Resulting Hash" placeholder="Hash" type="text" readonly="true">
                 </div>
 
                 <!-- Buttons for hashing and options -->
@@ -32,17 +32,23 @@
 
             <!-- Options menu slide of extension -->
             <div class="slide" id="slide_2">
-
+                <p>2</p>
             </div>
 
             <!-- About slide of extension -->
             <div class="slide" id="slide_3">
+                <p>3</p>
+            </div>
 
+            <!-- Exit slide (Copied to Clipboard) -->
+            <div class="slide" id="slide_4">
+                <h2>Copied to Clipboard</h2>
             </div>
         </div>
         <!-- Include dependencies and main.js script -->
         <script src="scripts/jquery.js"></script>
         <script src="scripts/sjcl.js"></script>
+        <script src="slick/slick.min.js"></script>
         <script src="scripts/main.js"></script>
     </body>
 </html>

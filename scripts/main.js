@@ -57,6 +57,12 @@ $(document).ready(function() {
         }
     });
 
+    $("#hash_output").focus(function(){
+        this.select()
+        document.execCommand("copy");
+        window.close();
+    });
+
     $("#options_button").click(function() {
         $("#options_menu").slideToggle(500);
     });
@@ -79,4 +85,6 @@ $(document).ready(function() {
             localStorage.setItem("strip_whitespace", false);
         }
     });
+
+    $(".wrapper").slick();
 });

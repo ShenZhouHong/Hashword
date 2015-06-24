@@ -19,6 +19,13 @@ body {
     /* Removes Chrome Ext default styles */
     margin: 0 0;
     padding: 0 0;
+
+    visibility: hidden;
+}
+
+/* First slide starts off visisble (duh) */
+#slide_1 {
+    visibility: visible;
 }
 
 /* Each label sits on top of a input box */
