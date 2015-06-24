@@ -43,23 +43,23 @@ var sha256_hasher = function(data, type) {
 $(document).ready(function() {
     //Reads value from input box in html page and passes it on to relevent functions
     $(".inputbox").on('input', function() {
-        // Gathers variables
-        var token = token_preparser($("#token_input").val(), localStorage.getItem("strip_whitespace"), localStorage.getItem("enforce_lowercase"));
-        var password = $("#password_input").val();
-        var slug = token + password
-
         // Checks in case inputs are empty
         if (token === "" || password === "") {
             // Do nothing
             $("#hash_output").val("");
         }
         else {
+            // Gathers variables
+            var token = token_preparser($("#token_input").val(), localStorage.getItem("strip_whitespace"), localStorage.getItem("enforce_lowercase"));
+            var password = $("#password_input").val();
+            var slug = token + password;
+            
             // Creates hash
             var hash = sha256_hasher(slug, "base64");
 
             // Writes hash to inputbox
             $("#hash_output").val(hash);
-            
+
             // Copies to clipboard and closes window when tabbed over
             $("#hash_output").focus(function(){
 
