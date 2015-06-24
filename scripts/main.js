@@ -54,13 +54,12 @@ $(document).ready(function() {
         else {
             var hash = sha256_hasher(slug, "base64");
             $("#hash_output").val(hash);
+            $("#hash_output").focus(function(){
+                this.select()
+                document.execCommand("copy");
+                window.close();
+            });
         }
-    });
-
-    $("#hash_output").focus(function(){
-        this.select()
-        document.execCommand("copy");
-        window.close();
     });
 
     $("#options_button").click(function() {
@@ -85,6 +84,4 @@ $(document).ready(function() {
             localStorage.setItem("strip_whitespace", false);
         }
     });
-
-    $(".wrapper").slick();
 });
