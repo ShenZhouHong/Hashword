@@ -63,11 +63,11 @@ body {
 }
 
 #options_link {
-    float: left;
+    float: right;
 }
 
 #help_link {
-    float: right;
+    float: left;
 }
 
 /* HTML Link Styles */
