@@ -58,7 +58,7 @@ $(document).ready(function() {
                 this.select()
                 document.execCommand("copy");
                 $("#notice_ticker").text("Copied!");
-                $("#wrapper").slideUp(500, function(){
+                $("#wrapper").slideUp(400, function(){
                     window.close();
                 });
             });

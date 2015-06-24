@@ -1,7 +1,12 @@
 /* Resets Chrome Ext's default body margins */
 body {
     margin: 0 0;
+}
+
+/* Sets my own body margins */
+.wrapper {
     padding: 5px;
+    height: 174px;
 }
 
 /* Section Heading */
@@ -53,7 +58,16 @@ body {
 .submenu_link {
     text-align:center;
     color: grey;
+    display: inline-block;
 
+}
+
+#options_link {
+    float: left;
+}
+
+#help_link {
+    float: right;
 }
 
 /* HTML Link Styles */
@@ -70,5 +84,5 @@ a:visited {
 /* mouse over link */
 a:hover {
     color: grey;
-    font-style: oblique;
+    font-weight: bold;
 }
