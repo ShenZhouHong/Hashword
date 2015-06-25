@@ -9,7 +9,6 @@ var token_preparser = function(token, trim, lowercase) {
     return token
 }
 
-// Primary module that creates password hashes.
 var sha256_hasher = function(data, type) {
     // Creates different encodings of the sha256 hash (base64 or hex)
     if (type == "hex") {

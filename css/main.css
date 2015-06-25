@@ -45,6 +45,11 @@ p {
     outline:none;
 }
 
+/* Hide output hash but allow copying */
+#hash_output {
+    color: #FCFCFC;
+}
+
 /* Display arrangement for navigation links in footer */
 .footer_link {
     text-align:center;
