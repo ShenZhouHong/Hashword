@@ -65,8 +65,16 @@ p {
 }
 
 /* Styling for option menu checkboxes */
-.checkbox {
+.checkbox_div {
+    display: inline-block;
     margin-top: 8px;
+}
+#options_content p {
+    display: inherit;
+}
+.checkbox {
+    display: inherit;
+    margin-right: 3px;
 }
 
 /* Makes heart size bigger */
