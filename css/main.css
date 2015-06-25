@@ -64,6 +64,11 @@ p {
     float: left;
 }
 
+/* Styling for option menu checkboxes */
+.checkbox {
+    margin-top: 8px;
+}
+
 /* Makes heart size bigger */
 #heart {
     font-size: 12px;
