@@ -47,7 +47,7 @@ p {
 
 /* Hide output hash but allow copying */
 #hash_output {
-    color: #FCFCFC;
+    /* color: #FCFCFC; */
 }
 
 /* Display arrangement for navigation links in footer */
