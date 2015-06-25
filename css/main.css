@@ -4,6 +4,16 @@ body {
     padding: 0 0;
 }
 
+p {
+    margin: 0 0;
+}
+.text {
+    font-size: 8px;
+    color: grey;
+    text-align: justify;
+    margin: 0 0;
+}
+
 /* Sets my own body margins */
 .wrapper {
     padding: 5px;
@@ -73,6 +83,16 @@ h1 {
 .footer {
 }
 
+#heart {
+    font-size: 12px;
+}
+
+#charm {
+    text-align: center;
+    text-decoration: none;
+
+}
+
 /* HTML Link Styles */
 /* unvisited link */
 a:link {
@@ -94,7 +114,6 @@ a:visited {
 /* mouse over link */
 a:hover {
     color: grey;
-    font-weight: bold;
     outline: none;
     outline-color: transparent;
     outline-style: none;

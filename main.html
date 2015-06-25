@@ -1,63 +1,106 @@
 <!DOCTYPE html>
 <html>
+    <!-- Hashword Chrome Extension, made by Shen Zhou Hong -->
     <head>
+        <!-- Title and Meta -->
         <title>Hashword</title>
         <meta charset="utf-8">
+
+        <!-- Stylesheets -->
         <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="slick/slick.css" />
         <link rel="stylesheet" href="css/main.css">
     </head>
+
     <body>
         <!-- Begin main content wrapper -->
         <div class="wrapper" id="wrapper">
 
-            <!-- About slide of extension -->
-            <div class="slide" id="slide_3">
-                <!-- Title Header -->
-                <div class="section_header" id="about_header">
-                    <h1> About </h1>
-                </div>
-
-                    <a href="#" class="submenu_link label forward" tabindex= "-1">
-                        Back
-                    </a>
-            </div>
-
-            <!-- Main slide of extension -->
+            <!-- First slide of the extension - 'About' Page -->
             <div class="slide" id="slide_1">
 
-                <!-- Title Header -->
-                <div class="section_header" id="title_header">
-                    <h1 id="notice_ticker"> Hashword </h1>
+                <!-- Section title header -->
+                <div class="section_header" id="about_header_div">
+                     <h1 id="about_header"> About </h1>
                 </div>
 
-                <!-- Div where all the inputs live -->
-                <div class="content" id="input_boxes">
-                    <p class="label">Token</p><input id="token_input" class="inputbox" name="Token" placeholder="Ex. Name of the Site" type="text">
-                    <p class="label">Password</p> <input id="password_input" class="inputbox" name="Password" placeholder="Master Password" type="password">
-                    <p class="label">Hash</p> <input id="hash_output" class="inputbox" name="Resulting Hash" placeholder="Hash" type="text" readonly="true">
+                <!-- Content body of slide -->
+                <div class="content" id="about_content">
+                    <hr>
+                    <p style="justify">
+                        Hashword version 0.0.1 Alpha. Written with <span id="heart">♥</span>by Shen Zhou Hong.
+                    </p>
+                    <hr>
                 </div>
 
+                <!-- Section Footer & Navbar -->
+                <div class="footer" id="about_footer">
+                    <a href="#" class="submenu_link label forward" tabindex="-1">
+                        Back
+                    </a>
+                </div>
+            </div>
+
+            <!-- Second slide of the extension - 'Main' Page -->
+            <div class="slide" id="slide_2">
+
+                <!-- Section title header -->
+                <div class="section_header" id="main_header_div">
+                     <h1 id="main_header"> Hashword </h1>
+                </div>
+
+                <!-- Content body of slide -->
+                <div class="content" id="main_content">
+
+                    <!-- Token input box -->
+                    <p class="label">Token</p>
+                    <input id="token_input" class="inputbox" name="Token" placeholder="Ex. Name of the Site" type="text" tabindex="1">
+
+                    <!-- Master password input box -->
+                    <p class="label">Password</p>
+                    <input id="password_input" class="inputbox" name="Password" placeholder="Master Password" type="password" tabindex="2">
+
+                    <!-- Resulting hash output box -->
+                    <p class="label">Hash</p>
+                    <input id="hash_output" class="inputbox" name="Resulting Hash" placeholder="Hash" type="text" readonly tabindex="3">
+
+                </div>
+
+                <!-- Section Footer & Navbar -->
+                <div class="footer" id="main_footer">
                     <!-- Help Menu Link -->
                     <a href="#" class="submenu_link label backward" id="help_link" tabindex="-1">
-                        Help
+                        About
                     </a>
 
                     <!-- Options Menu Link -->
                     <a href="#" class="submenu_link label forward" id="options_link" tabindex="-1">
                         Options
                     </a>
+                </div>
             </div>
 
-            <!-- Options menu slide of extension -->
-            <div class="slide" id="slide_2">
-                <div class="section_header" id="options_header">
-                    <h1>Options</h1>
+            <!-- Third slide of the extension - 'Options' page -->
+            <div class="slide" id="slide_3">
+
+                <!-- Section title header -->
+                <div class="section_header" id="options_header_div">
+                     <h1 id="options_header">Options</h1>
                 </div>
-                <!-- Help Menu Link -->
+
+                <!-- Content body of slide -->
+                <div class="content" id="options_content">
+
+                </div>
+
+                <!-- Section Footer & Navbar -->
+                <div class="footer" id="options_footer">
+                    <!-- Help Menu Link -->
                     <a href="#" class="submenu_link label backward" tabindex="-1">
                         Back
                     </a>
+                </div>
+
             </div>
         </div>
         <!-- Include dependencies and main.js script -->
@@ -66,4 +109,5 @@
         <script type="text/javascript" src="slick/slick.min.js"></script>
         <script src="scripts/main.js"></script>
     </body>
+
 </html>

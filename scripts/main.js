@@ -41,7 +41,7 @@ $(document).ready(function() {
 
                 //Copies to clipboard
                 document.execCommand("copy");
-                $("#notice_ticker").text("Copied!");
+                $("#main_header").text("Copied!");
 
                 // Closing animation
                 $("#wrapper").slideUp(400, function(){
@@ -66,11 +66,6 @@ $(document).ready(function() {
         swipe: false,
         swipeToSlide: false,
         touchMove: false,
-
-    });
-
-    // Toggles option panel (not done yet)
-    $("#options_link").click(function() {
 
     });
 
