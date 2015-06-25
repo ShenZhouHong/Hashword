@@ -3,123 +3,88 @@ body {
     margin: 0 0;
     padding: 0 0;
 }
-
+h1 {
+    margin: 0 0;
+    padding: 0 0;
+}
 p {
     margin: 0 0;
-}
-.text {
-    font-size: 8px;
-    color: grey;
-    text-align: justify;
-    margin: 0 0;
+    padding: 0 0;
 }
 
-/* Sets my own body margins */
+/* Explicit sizing requirements for wrapper defined */
 .wrapper {
     padding: 5px;
     height: 182px;
     width: 140px;
 }
 
-/* Section Heading */
+/* Section header stying for all section title headers */
 .section_header {
     text-align: center;
-    margin: 0 0;
-
-}
-h1 {
-    margin: 0 0;
 }
 
-/* Each individual slide represents a menuspace */
+/* Explicit sizing requirements for slide defined */
 .slide {
-    /* Dimensions */
     width: 130px;
-    height: 100%;
-
-    /* Removes Chrome Ext default styles */
-    margin: 0 0;
-    padding: 0 0;
-
-    visibility: visible;
 }
 
-/* First slide starts off visisble (duh) */
-#slide_1 {
-    visibility: visible;
-}
-
-/* Each label sits on top of a input box */
+/* Defines margin as buffer space for inputbox labels */
 .label {
-    margin: 8px 0 0 0;
+    margin-top: 8px;
     padding: 0 0;
 }
 
-/* Custom styling for input boxes */
+/* Custom visual styling for input boxes */
 .inputbox {
     border-radius: 3px;
     border-width: 1px;
 }
-
 .inputbox:focus {
+    /* Removes glow */
     outline:none;
 }
 
-/* Submenu link (link to and fro options menu) */
-.submenu_link {
+/* Display arrangement for navigation links in footer */
+.footer_link {
     text-align:center;
-    color: grey;
     display: inline-block;
 }
-
 .forward {
+    /* Go forward link */
     float: right;
 }
-
 .backward {
+    /* Go backward link */
     float: left;
 }
 
-.footer {
-}
-
+/* Makes heart size bigger */
 #heart {
     font-size: 12px;
 }
 
-#charm {
-    text-align: center;
-    text-decoration: none;
-
-}
-
-/* HTML Link Styles */
-/* unvisited link */
+/* Custom styling for HTML links (in all states) */
 a:link {
     color: grey;
     outline: none;
     outline-color: transparent;
     outline-style: none;
 }
-
-/* Removes glow on active links (annoying) */
-/* visited link */
 a:visited {
     color: grey;
     outline: none;
     outline-color: transparent;
     outline-style: none;
 }
-
-/* mouse over link */
 a:hover {
     color: grey;
     outline: none;
     outline-color: transparent;
     outline-style: none;
 }
-
 a:active {
+    color: grey;
     outline: none;
     outline-color: transparent;
     outline-style: none;
