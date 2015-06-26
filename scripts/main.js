@@ -145,7 +145,7 @@ $(document).ready(function() {
     try {
         // Trim settings
         if (localStorage.getItem("trim") !== null) {
-            var trim = localStorage.getItem("trim");
+            var trim = Boolean(localStorage.getItem("trim"));
         }
         else if (localStorage.getItem("trim") == null) {
             var trim = false;
@@ -154,7 +154,7 @@ $(document).ready(function() {
 
         // Lowercase settings
         if (localStorage.getItem("lowercase") !== null) {
-            var lowercase = localStorage.getItem("lowercase");
+            var lowercase = Boolean(localStorage.getItem("lowercase"));
         }
         else if (localStorage.getItem("lowercase") == null) {
             var lowercase = false;
@@ -163,7 +163,7 @@ $(document).ready(function() {
 
         // Autocopy settings
         if (localStorage.getItem("autocopy") !== null) {
-            var autocopy = localStorage.getItem("autocopy");
+            var autocopy = Boolean(localStorage.getItem("autocopy"));
         }
         else if (localStorage.getItem("autocopy") == null) {
             var autocopy = true;
@@ -172,7 +172,7 @@ $(document).ready(function() {
 
         // Autoclose settings
         if (localStorage.getItem("autoclose") !== null) {
-            var autoclose = localStorage.getItem("autoclose");
+            var autoclose = Boolean(localStorage.getItem("autoclose"));
         }
         else if (localStorage.getItem("autoclose") == null) {
             var autoclose = true;
