@@ -1,141 +1,169 @@
+var sha256_hasher = function(input, encoding) {
+    // Creates SHA-256 hash from input, returns either hash in hex or base64
+    if (encoding == "hex") {
+        console.log("Info: sha256_hasher() returned hex hash");
+        return sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(input));
+    }
+    else if (encoding == "base64") {
+        console.log("Info: sha256_hasher() returned base64 hash");
+        return sjcl.codec.base64.fromBits(sjcl.hash.sha256.hash(input));
+    }
 
-// Gathers settings from the options menu
-console.log("Info: Attempting to load settings from localStorage API");
-
-if (localStorage.getItem("strip_whitespace_value") !== null) {
-var strip_whitespace_value = localStorage.getItem("strip_whitespace_value");
+    // If encoding value is neither
+    else {
+        throw "Error: sha256_hasher() encoding accepts 'hex' or 'base64', but recieved " + encoding;
+    }
 }
-var enforce_lowercase_value = localStorage.getItem("enforce_lowercase_value");
-var hide_hash_value = localStorage.getItem("hide_hash_value");
 
-// Debug logging for options menu logs
-console.log("Info: Dumping options menu variables!");
-console.log("      strip whitespace: " + strip_whitespace_value);
-console.log("      enforce lowercase: " + enforce_lowercase_value);
-console.log("      hide hash: " + hide_hash_value);
-console.log("Info: Dump complete, values above");
+var token_parser = function(token, trim, lowercase) {
+    // Debug logging for token_parser arguments
+    console.log("Info: token_parser() called");
+    console.log("Info: token_parser() given the following arguments: ");
+    console.log("      token: " + token);
+    console.log("      trim: " + trim);
+    console.log("      lowercase: " + lowercase);
 
-// Preparses token for the sake of consistency
-var token_preparser = function(token, trim, lowercase) {
-    // Debug logging for token retrieval
-    console.log("Info: Token recieved at token_preparser");
-    console.log("Info: Original token: " + token);
-
-    // Trims token
+    // Checks if trimming is specified
     if (trim == true) {
-        token.trim();
 
-        // Debug logging for token trimming
-        console.log("Info: Token is now trimmed");
-        console.log("Info: Token currently " + token);
+        // Attempts to trim whitespace from token for consistency
+        try {
+            token = token.trim();
+
+            // Debug logging for trimmed token
+            console.log("Info: token_parser() trimmed Token currently " + token);
+        }
+        // In case trm process does not work, throw error
+        catch(error) {
+            throw "Error: token_parser() token.trim() failed, " + error;
+        }
     }
 
-    // Forces lowercase
+    // Checks if lowercase is specified
     if (lowercase == true) {
-        token.toLowerCase();
 
-        // Debug logging for token lowercasing
-        console.log("Info: Token is now lowercased");
-        console.log("Info: Token currently " + token);
+        // Attempts to force lowercase on token for consistency
+        try {
+            token = token.toLowerCase();
+
+            // Debug logging for token lowercasing
+            console.log("Info: token_parser() lowercased Token currently " + token);
+        }
+        // In case lowerase process does not work, throw error
+        catch(error) {
+            throw "Error: token_parser() token.toLowerCase() failed, " + error;
+        }
     }
 
-    // Debug logging for token return
-    console.log("Info: Token has finished processing and is now returned");
-    console.log("Info: Post-processed token: " + token);
-    return token;
+    // Returns token no matter what
+    return token
 }
 
-// Creates different encodings of the sha256 hash (base64 or hex)
-var sha256_hasher = function(data, type) {
-    if (type == "hex") {
-
-        // Debug logging for hex hash return
-        console.log("Info: sha256_hasher returned hex hash");
-
-        // Return hash (hex)
-        return sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(data));
-    }
-    if (type == "base64") {
-
-        // Debug logging for base64 hash return
-        console.log("Info: sha256_hasher returned base64 hash");
-
-        // Return hash (base64)
-        return sjcl.codec.base64.fromBits(sjcl.hash.sha256.hash(data));
-    }
-}
-
-var autofocus = function() {
-    // Automatically focuses on first inputbox to start with
+var startup = function() {
+    // Focuses cursor on inputbox in form during startup
     $("#token_input").focus();
+    console.log("Info: startup() #token_input inputbox focused");
 
-    // Debug logging for #token_input focus
-    console.log("Info: #token_input inputbox focused");
-}
+    // Initializes slick.js carousel for menu panels
+    try {
+        $(".wrapper").slick({
 
-var slider_activate = function() {
-    // Uses slick.js to start slide panel sliding effect
-    $(".wrapper").slick({
+            // Sets sliding speed
+            speed: 200,
 
-        // Sets sliding speed
-        speed: 200,
+            // Binds forward and backward buttons
+            nextArrow: $(".forward"),
+            prevArrow: $(".backward"),
 
-        // Binds forward and backward buttons
-        nextArrow: $(".forward"),
-        prevArrow: $(".backward"),
+            // Sliding and slide view settings
+            slidesToShow: 1,
+            slidesToScroll: 1,
 
-        // Sliding and slide view settings
-        slidesToShow: 1,
-        slidesToScroll: 1,
+            // Disables various hipster drag settings
+            draggable: false,
+            swipe: false,
+            swipeToSlide: false,
+            touchMove: false,
 
-        // Disables various hipster drag settings
-        draggable: false,
-        swipe: false,
-        swipeToSlide: false,
-        touchMove: false,
+            // Misc. slide.js settings for slider window
+            variableWidth: true,
+            infinite: false,
+            centerMode: false,
+            initialSlide: 1
+        });
 
-        // Misc. slide.js settings for slider window
-        variableWidth: true,
-        infinite: false,
-        centerMode: false,
-        initialSlide: 1
-    });
-    // Debug logging for slick.js activation
-    console.log("Info: Slick.js activated at .wrapper class");
-}
-
-var option_loader = function() {
-
-    // Changes checkmarks in the options menu based on previous settings
-    if (strip_whitespace_value == true) {
-        $('#strip_whitespace').prop('checked', true);
-
+        // Debug logging for slick.js activation
+        console.log("Info startup(): slick.js activated at .wrapper class")
     }
 
-    if (enforce_lowercase_value == true) {
-        $('#enforce_lowercase').prop('checked', true);
-    }
-
-    if (hide_hash_value == true) {
-        $('#hide_hash').prop('checked', true);
+    // In case slick.js did not load or does not work, throw error
+    catch(error) {
+        throw "Error: startup() $(\".wrapper\").slick({...}) failed, " + error;
     }
 }
 
-// Main javascript code body - executes on document load ready
-$(document).ready(function() {
+var load_options = function() {
+    // Attempts to loads options for the extensions from localStorage API as booleans
+    try {
+        window.strip_whitespace_value = Boolean(localStorage.getItem("strip_whitespace_value"));
+        window.enforce_lowercase_value = Boolean(localStorage.getItem("enforce_lowercase_value"));
+        window.hide_hash_value = Boolean(localStorage.getItem("hide_hash_value"));
+        }
 
-    autofocus();
-    slider_activate();
-    option_loader();
+    // If somehow the attempt does not work, throw error
+    catch(error) {
+        // If it does not work
+        throw "Error: load_options() failed at loading option values from localStorage API, " + error;
+    }
 
-    // Sets settings from the options menu
+    // After options are loaded, attempt to check checkboxes in options panel if they are already set
+    try {
+        // strip_whitespace options
+        if (strip_whitespace_value === true) {
+            // Check the checkboxes
+            $('#strip_whitespace').prop('checked', true);
+        }
+        else {
+            // Uncheck them if they are false
+            $('#strip_whitespace').prop('checked', false);
+        }
+
+        // enforce_lowercase options
+        if (enforce_lowercase_value === true) {
+            $('#enforce_lowercase').prop('checked', true);
+        }
+        else {
+            $('#enforce_lowercase').prop('checked', false);
+        }
+
+        // hide_hash options
+        if (hide_hash_value === true) {
+            $('#hide_hash').prop('checked', true);
+        }
+        else {
+            $('#hide_hash').prop('checked', false);
+        }
+    }
+
+    // If checkboxes cannot be checked, throw error
+    catch(error) {
+        throw "Error: load_options() failed at checking checkboxes, " + error;
+    }
+}
+
+var set_options = function() {
+    // Antagonistic to load_options() - sets the options defined by the user
     $("#strip_whitespace").click(function(){
         if ($("#strip_whitespace").is(':checked') == true) {
             localStorage.setItem("strip_whitespace_value", true);
+
         }
-        else {
+        else if ($("#strip_whitespace").is(':checked') == false) {
             localStorage.setItem("strip_whitespace_value", false);
         }
+        // Updates changes with load_options()
+        load_options();
+
         // Debug prompt
         console.log("strip_whitespace_value: " + localStorage.getItem("strip_whitespace_value"));
 
@@ -144,9 +172,12 @@ $(document).ready(function() {
         if ($("#enforce_lowercase").is(':checked') == true) {
             localStorage.setItem("enforce_lowercase_value", true);
         }
-        else {
+        else if ($("#enforce_lowercase").is(':checked') == false) {
             localStorage.setItem("enforce_lowercase_value", false);
         }
+        // Updates changes with load_options()
+        load_options();
+
         // Debug prompt
         console.log("enforce_lowercase_value " + localStorage.getItem("enforce_lowercase_value"));
 
@@ -155,12 +186,24 @@ $(document).ready(function() {
         if($("#hide_hash").is(':checked') == true) {
             localStorage.setItem("hide_hash_value", true);
         }
-        else {
+        else if ($("#hide_hash").is(':checked') == false) {
             localStorage.setItem("hide_hash_value", false);
         }
+        // Updates changes with load_options()
+        load_options();
+
         // Debug prompt
         console.log("hide_hash " + localStorage.getItem("hide_hash_value"));
     });
+
+}
+
+// Main javascript code body - executes on document load ready
+$(document).ready(function() {
+
+    startup();
+    load_options();
+    set_options();
 
     // Reads value from input box in html page and passes it on to relevent functions
     $(".inputbox").on('input', function() {
@@ -176,7 +219,8 @@ $(document).ready(function() {
         else {
 
             // Creates processed token after processing by preparser
-            var processed_token = token_preparser($("#token_input").val(), strip_whitespace_value, enforce_lowercase_value);
+            var processed_token = token_parser($("#token_input").val(), strip_whitespace_value, enforce_lowercase_value);
+            console.log("Info: Processed token is " + processed_token);
 
             // Creates hash from password and processed token
             var hash = sha256_hasher(processed_token + $("#password_input").val(), "base64");
