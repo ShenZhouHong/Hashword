@@ -183,6 +183,53 @@ $(document).ready(function() {
         throw "Error: failed to initiate global setting variables, " + error;
     }
 
+    // Attempts to check checkboxes on options menu with previous values
+    try {
+        // Trim options
+        if (trim === true) {
+            // Check the checkboxes
+            $('#strip_whitespace').prop('checked', true);
+        }
+        else {
+            // Uncheck them if they are false
+            $('#strip_whitespace').prop('checked', false);
+        }
+
+        // Lowercase options
+        if (lowercase === true) {
+            $('#enforce_lowercase').prop('checked', true);
+        }
+        else {
+            $('#enforce_lowercase').prop('checked', false);
+        }
+
+        // Autocopy options
+        if (autocopy === true) {
+            // Check the checkboxes
+            $('#autocopy').prop('checked', true);
+        }
+        else {
+            // Uncheck them if they are false
+            $('#autocopy').prop('checked', false);
+        }
+
+        // enforce_lowercase options
+        if (autoclose === true) {
+            $('#autoclose').prop('checked', true);
+        }
+        else {
+            $('#autoclose').prop('checked', false);
+        }
+    }
+    catch(error) {
+        throw "Error: Checking checkboxes did not work, " + error;
+    }
+
+    // If user changes settings, attempts to update said settings
+    try {
+
+    }
+
     // Execute as soon as a inputbox is changed/modified
     $(".inputbox").on('input', function() {
 
