@@ -2,8 +2,9 @@
 // Gathers settings from the options menu
 console.log("Info: Attempting to load settings from localStorage API");
 
-// Declares global option variables from chrome API localStorage
+if (localStorage.getItem("strip_whitespace_value") !== null) {
 var strip_whitespace_value = localStorage.getItem("strip_whitespace_value");
+}
 var enforce_lowercase_value = localStorage.getItem("enforce_lowercase_value");
 var hide_hash_value = localStorage.getItem("hide_hash_value");
 
