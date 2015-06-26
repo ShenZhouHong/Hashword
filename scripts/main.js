@@ -136,7 +136,7 @@ $(document).ready(function() {
             localStorage.setItem("strip_whitespace_value", false);
         }
         // Debug prompt
-        console.log("strip_whitespace_value " + localStorage.getItem("strip_whitespace_value"));
+        console.log("strip_whitespace_value: " + localStorage.getItem("strip_whitespace_value"));
 
     });
     $("#enforce_lowercase").click(function(){
